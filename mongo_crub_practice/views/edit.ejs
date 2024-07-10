@@ -1,0 +1,47 @@
+
+<form method="post" action="/updateData">
+    <input type="hidden" value="<%= user.id %>" name="updateId" />
+    <table border >
+        <tr>
+            <th>Name</th>
+            <td><input type="text" value="<%= user.name %>" name="name" /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" value="<%= user.email %>"  name="email" /></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" value="<%= user.password %>"  name="password" /></td>
+        </tr>
+        <tr>
+        <td>Gender</td>
+        <td>
+            <input type="radio" value="male" <% if(user.gender == "male"){ %> checked <% } %> name="gender" />Male 
+            <input type="radio" value="female" <% if(user.gender == "female"){ %> checked <% } %> name="gender" />Female 
+            <input type="radio" value="other" <% if(user.gender == "other"){ %> checked <% } %> name="gender" />Other 
+        </td>
+    </tr>
+        <tr>
+            <th>course</th>
+            <td>
+                <select name="course" id="">
+                    <option>--select--</option>
+                    <% 
+                    let opt =["Full Stack", "UI / UX", "Front End", "Back End", "Graphic Design"];
+                    opt.map((item) => {
+                    %>
+                        <option <% if(user.course == item){ %> selected <%} %> ><%= item %></option>
+                
+                    <% }) %> 
+                    <option value="Full Stack" name="Full Stack"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>

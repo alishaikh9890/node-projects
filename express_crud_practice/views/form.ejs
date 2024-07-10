@@ -1,0 +1,60 @@
+<form method="post" action="/insertData">
+    <table border>
+        <tr>
+            <th>id</th>
+            <td><input type="number" name="id"/></td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td><input type="text" name="name"/></td>
+        </tr>
+        <tr>
+             <th>email</th>
+             <td><input type="email" name="email"/></td>
+        </tr>
+        <tr>
+             <th>password</th>
+             <td><input type="text" name="password"/></td>
+        </tr>
+        <tr>
+                 <th>phone</th>
+                 <td><input type="number" name="phone"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit"></td>
+        </tr>
+
+    </table>
+
+</form>
+
+
+
+<table border>
+    <tr>
+         <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+        <th>phone</th>
+        <th>actions</th>
+    </tr>
+    
+    <% obj.map((user) => { %>
+    
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.password %></td>
+            <td><%= user.phone %></td>
+            <td>
+                <button><a href="/deleteData?id=<%= user.id %>">Delete</a></button>
+                ||
+                <button><a href="/editData?editid=<%= user.id %>">Edit</a></button>
+            </td>
+        </tr>
+    
+    <% }) %>
+
+</table>

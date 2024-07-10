@@ -1,0 +1,74 @@
+
+<form method="post" action="/insertData">
+    <table border >
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>
+                <input type="radio" value="male" name="gender" />Male 
+                <input type="radio" value="female" name="gender" />Female 
+                <input type="radio" value="other" name="gender" />Other 
+            </td>
+        </tr>
+        <tr>
+            <th>course</th>
+            <td>
+                <select name="course" id="">
+                    <option>--select--</option>
+                    <% 
+                    let opt =["Full Stack", "UI / UX", "Front End", "Back End", "Graphic Design"];
+                    opt.map((item) => {
+                    %>
+                        <option ><%= item %></option>
+                
+                    <% }) %> 
+                    <option value="Full Stack" name="Full Stack"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+<table border>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Gender</th>
+        <th>action</th>
+    </tr>
+    <%  allData.map((data) => { %>
+
+        <tr>
+            <td><%= data.name %></td>
+            <td><%= data.email %></td>
+            <td><%= data.password %></td>
+            <td><%= data.gender %></td>
+            <td><%= data.course %></td>
+            <td>
+                <button><a href="/deleteData?deleteId=<%=data.id %>">⚔️ Delete</a></button>
+                ||
+                <button><a href="/editData?editId=<%= data.id %>">🪛 Edit</a></button>
+            </td>
+        </tr>
+    
+      <%  }) %>
+</table>

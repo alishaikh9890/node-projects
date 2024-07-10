@@ -1,0 +1,30 @@
+<form method="post" action="/insertData">
+    <input type="hidden" value="<%= records.id %>" name="editedid"/>
+    <table border>
+        <tr>
+            <th>id</th>
+            <td><input type="number" disabled value="<%= records.id %>" name="id"/></td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td><input type="text" value="<%= records.name %>"  name="name"/></td>
+        </tr>
+        <tr>
+             <th>email</th>
+             <td><input type="email" value="<%= records.email %>"  name="email"/></td>
+        </tr>
+        <tr>
+             <th>password</th>
+             <td><input type="text" value="<%= records.password %>"  name="password"/></td>
+        </tr>
+        <tr>
+                 <th>phone</th>
+                 <td><input type="number" value="<%= records.phone %>"  name="phone"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Edit"></td>
+        </tr>
+
+    </table>
+
+</form>
