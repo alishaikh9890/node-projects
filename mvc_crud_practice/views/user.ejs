@@ -1,4 +1,4 @@
-<form action="/fillData" method="post" enctype="multipart/form-data">
+<form action="/fillData" method="post" enctype="multipart/form-data" >
     <table border="">
         <tr>
             <td>Name</td>
@@ -23,18 +23,70 @@
         <tr>
             <td>hobby</td>
             <td>
-                <input type="checkbox" value="male" name="hobby" />male
-                <input type="checkbox" value="female" name="hobby" />female
-                <input type="checkbox" value="other" name="hobby" />other
+                <input type="checkbox" value="Cricket" name="hobby" />Cricket
+                <input type="checkbox" value="Music" name="hobby" />Music
+                <input type="checkbox" value="Chess" name="hobby" />Chess
+                <input type="checkbox" value="Coding" name="hobby" />Coding
             </td>
         </tr>
         <tr>
             <td>city</td>
-            <td><input type="text" name="name" /></td>
+            <td>
+                <select name="city">  
+                    <option>--select--</option>
+                   <%
+                      let city = ["Mumbai", "Pune", "Delhi", "Surat", "Bangalore"];
+                      city.map((val) =>{ 
+                        %>
+                            <option value="<%= val %>"><%= val %></option>
+                        <%
+                      })
+                      %>
+                </select>
+
+            </td>
         </tr>
         <tr>
-            <td>Name</td>
-            <td><input type="text" name="name" /></td>
+            <td>Image</td>
+            <td>
+                <input type="file" name="image" />
+            </td>
+        </tr>
+    
+        <tr>
+            <td colspan="2" align="center" ><input type="submit" /></td>
         </tr>
     </table>
 </form>
+
+
+<table border="">
+    <tr>
+        <th>Name</th>
+        <th>email </th>
+        <th>password</th>
+         <th>Gender</th>
+         <th>hobby</th>
+         <th>city</th>
+         <th>image</th>
+    </tr>
+   
+    <% records.map((item)=>{ %>
+        <tr>
+            <td><%= item.name %></td>
+            <td><%= item.email %></td>
+            <td><%= item.password %></td>
+            <td><%= item.gender %></td>
+            <td><%= item.city %></td>
+            <td><img src="<%= item.image %>" width="50px" /> </td> 
+            <td>
+                <button><a href="/deleteData?id=<%= item.id %>">Delete</a></button>
+            </td>
+        </tr>
+
+  <%   }) %>
+
+
+
+
+</table>

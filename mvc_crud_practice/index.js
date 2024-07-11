@@ -6,7 +6,13 @@ const port = 8000;
 
 const db = require("./config/database")
 
+const path = require("path")
+
 app.set("view engine", "ejs")
+
+app.use(express.urlencoded());
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/", require("./routes"));
 

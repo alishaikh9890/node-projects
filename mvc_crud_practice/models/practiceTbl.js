@@ -31,7 +31,7 @@ const practiceSchema = mongoose.Schema({
     },
 })
 
-const crud = mongoose.model("practiceCrud", crudSchema);
+const crud = mongoose.model("practiceCrud", practiceSchema);
 
 module.exports = crud;
 
