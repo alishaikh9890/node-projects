@@ -1,0 +1,63 @@
+<form action="/filleditData" method="post" enctype="multipart/form-data" >
+    <input type="hidden" name="editid" value="<%= single.id %>" />
+    <table border="">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" value="<%= single.name %>" name="name" /></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="email" value="<%= single.email %>" name="email" /></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="text" value="<%= single.password %>" name="password" /></td>
+        </tr>
+        <tr>
+            <td>gender</td>
+            <td>
+                <input type="radio" <% if(single.gender == "male"){ %> checked <% } %> value="male" name="gender" />male
+                <input type="radio" <% if(single.gender == "female"){ %> checked <% } %> value="female" name="gender" />female
+                <input type="radio" <% if(single.gender == "other"){ %> checked <% } %> value="other" name="gender" />other
+            </td>
+        </tr>
+        <tr>
+            <td>hobby</td>
+            <td>
+                <input type="checkbox" <% if(single.hobby.includes("Cricket")){ %> checked <% } %>  value="Cricket" name="hobby" />Cricket
+                <input type="checkbox" <% if(single.hobby.includes("Music")){ %> checked <% } %> value="Music" name="hobby" />Music
+                <input type="checkbox" <% if(single.hobby.includes("Chess")){ %> checked <% } %> value="Chess" name="hobby" />Chess
+                <input type="checkbox" <% if(single.hobby.includes("Coding")){ %> checked <% } %> value="Coding" name="hobby" />Coding
+            </td>
+        </tr>
+        <tr>
+            <td>city</td>
+            <td>
+                <select name="city">  
+                    <option>--select--</option>
+                   <%
+                      let city = ["Mumbai", "Pune", "Delhi", "Surat", "Bangalore"];
+                      city.map((val) =>{ 
+                        %>
+                            <option <% if(single.city ==val){ %> selected <%}%> value="<%= val %>"><%= val %></option>
+                        <%
+                      })
+                      %>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td>
+                <input type="file" name="image" />
+                <img src="<%= single.image %>" alt=""  width="50px" />
+            </td>
+        </tr>
+    
+        <tr>
+            <td colspan="2" align="center" ><input type="submit" /></td>
+        </tr>
+    </table>
+</form>
+

@@ -80,7 +80,8 @@
             <td><%= item.city %></td>
             <td><img src="<%= item.image %>" width="50px" /> </td> 
             <td>
-                <button><a href="/deleteData?id=<%= item.id %>">Delete</a></button>
+                <button><a href="/deleteData?id=<%= item.id %>">Delete</a></button> || 
+                <button><a href="/editData?id=<%= item.id %>">Edit</a></button>
             </td>
         </tr>
 
